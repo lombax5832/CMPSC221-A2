@@ -6,28 +6,46 @@ package assignment2;
  */
 public class BasePlusCommissionEmployee extends CommissionEmployee {
 
-    private final double baseSalary;
+    //Private Data
+    private double baseSalary;
 
+    //Constructor
     BasePlusCommissionEmployee(String firstName, String lastName, String ssn, double grossSales, double commissionRate, double baseSalary) {
         super("Base Salary Plus Commissioned Employee", firstName, lastName, ssn, grossSales, commissionRate);
+        
+        //Validation
+        if(baseSalary < 0){
+            throw new IllegalArgumentException("Salary must be a positive value!");
+        }
+        
+        //Initialization
         this.baseSalary = baseSalary;
     }
 
-    double getBaseSalary() {
+    //Getter Block
+    public double getSalary() {
         return baseSalary;
     }
+   
+    //Setter Block
+    public void setSalary(double newSalary) {
+        if(newSalary < 0){
+            throw new IllegalArgumentException("Salary must be a positive value!");
+        }
+        baseSalary = newSalary;
+    }
 
+    //Abstract method override block
     @Override
     public String getEmployeeInfoString() {
         String str = super.getEmployeeInfoString();
 
-        str += String.format("    with Base Salary of: $%f.2%n", getBaseSalary());
+        str += String.format("    with Base Salary of: $%.2f%n", getSalary());
 
         return str;
     }
-
     @Override
     public double getEarnings() {
-        return super.getEarnings() + getBaseSalary();
+        return super.getEarnings() + getSalary();
     }
 }

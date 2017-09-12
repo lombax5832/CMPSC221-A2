@@ -6,60 +6,70 @@ package assignment2;
  */
 public abstract class Employee {
 
+    //Private Data
     private final String EMPLOYEE_TYPE;
     private String firstName;
     private String lastName;
     private String ssn;
-    
-    public Employee(String empType, String firstName, String lastName, String ssn){
+
+    //Constructor
+    Employee(String empType, String firstName, String lastName, String ssn) {
         this.EMPLOYEE_TYPE = empType;
         this.firstName = firstName;
         this.lastName = lastName;
         this.ssn = ssn;
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         String str;
-        
-        str = String.format("%s: %s with ssn: %s%n%s    Earnings: $%f.2%n%s    Earnings: $s%n", 
-                getEmployeeType(), 
-                getFullName(), 
+
+        str = String.format("%s: %s with ssn: %s%n%s    Earnings: $%.2f%n",
+                getEmployeeType(),
+                getFullName(),
                 getSSN(),
                 getEmployeeInfoString(),
                 getEarnings());
-        
+
         return str;
     }
-    
-    public String getFirstName(){
+
+    //Getter Block
+    public String getFirstName() {
         return firstName;
     }
-    
-    public String getLastName(){
+
+    public String getLastName() {
         return lastName;
     }
-    
-    public String getFullName(){
+
+    public String getFullName() {
         return firstName + " " + lastName;
     }
-    
-    public String getSSN(){
+
+    public String getSSN() {
         return ssn;
     }
-    
-    public String getEmployeeType(){
+
+    public String getEmployeeType() {
         return EMPLOYEE_TYPE;
     }
-    
+
+    //Abstract method block
     abstract String getEmployeeInfoString();
+
     abstract double getEarnings();
-    
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        CommissionEmployee employee1 = new CommissionEmployee("Fred", "Jones", "111-11-1111", 2000.0, .05);
+        BasePlusCommissionEmployee employee2 = new BasePlusCommissionEmployee("Sue", "Smith", "222-22-2222", 3000.0, .05, 300);
+        SalariedEmployee employee3 = new SalariedEmployee("Sha", "Yang", "333-33-3333", 1150.0);
+        HourlyEmployee employee4 = new HourlyEmployee("Ian", "Tanning", "444-44-4444", 15.0, 50);
+        HourlyEmployee employee5 = new HourlyEmployee("Angela", "Domchek", "555-55-5555", 20.0, 40);
+        System.out.printf("%s%s%s%s%s", employee1, employee2, employee3, employee4, employee5);
     }
-    
+
 }
