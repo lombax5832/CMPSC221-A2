@@ -51,7 +51,7 @@ public class CommissionEmployee extends Employee {
 
     //Abstract method override block
     @Override
-    public String getEmployeeInfoString() {
+    protected String getEmployeeInfoString() {
         String str;
 
         str = String.format("    Gross Sales: %.2f%n    Commission Rate: %.2f%n",

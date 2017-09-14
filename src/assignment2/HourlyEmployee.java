@@ -51,7 +51,7 @@ public class HourlyEmployee extends Employee {
 
     //Abstract method override block
     @Override
-    String getEmployeeInfoString() {
+    protected String getEmployeeInfoString() {
         String str;
 
         str = String.format("    Hourly Wage: %.2f%n    Hours Worked: %.2f%n", getWage(), getHoursWorked());
@@ -60,7 +60,7 @@ public class HourlyEmployee extends Employee {
     }
 
     @Override
-    double getEarnings() {
+    public double getEarnings() {
         return getHoursWorked() * getWage();
     }
 

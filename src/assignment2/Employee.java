@@ -56,9 +56,9 @@ public abstract class Employee {
     }
 
     //Abstract method block
-    abstract String getEmployeeInfoString();
+    protected abstract String getEmployeeInfoString();
 
-    abstract double getEarnings();
+    public abstract double getEarnings();
 
     /**
      * @param args the command line arguments

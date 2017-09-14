@@ -37,7 +37,7 @@ public class BasePlusCommissionEmployee extends CommissionEmployee {
 
     //Abstract method override block
     @Override
-    public String getEmployeeInfoString() {
+    protected String getEmployeeInfoString() {
         String str = super.getEmployeeInfoString();
 
         str += String.format("    with Base Salary of: $%.2f%n", getSalary());

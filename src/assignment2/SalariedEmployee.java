@@ -37,7 +37,7 @@ public class SalariedEmployee extends Employee{
     
     //Abstract method override block
     @Override
-    String getEmployeeInfoString() {
+    protected String getEmployeeInfoString() {
         String str;
         
         str = String.format("    Salary: $%.2f%n", getSalary());
@@ -45,7 +45,7 @@ public class SalariedEmployee extends Employee{
         return str;
     }
     @Override
-    double getEarnings() {
+    public double getEarnings() {
         return getSalary();
     }
     
