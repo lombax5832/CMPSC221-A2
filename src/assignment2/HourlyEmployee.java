@@ -10,7 +10,7 @@ public class HourlyEmployee extends Employee {
     private double hoursWorked;
 
     HourlyEmployee(String firstName, String lastName, String ssn, double wage, double hoursWorked) {
-        super("Hourly Employee", firstName, lastName, ssn);
+        super(EMPLOYEE_TYPE.HOURLY_EMPLOYEE, firstName, lastName, ssn);
 
         //Validation
         if (wage < 0) {
@@ -64,4 +64,9 @@ public class HourlyEmployee extends Employee {
         return getHoursWorked() * getWage();
     }
 
+    @Override
+    public void raise(double percent) {
+        percent += 1.0;
+        setWage(getWage() * percent);
+    }
 }

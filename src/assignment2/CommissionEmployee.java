@@ -12,10 +12,10 @@ public class CommissionEmployee extends Employee {
 
     //Constructors
     CommissionEmployee(String firstName, String lastName, String ssn, double grossSales, double commissionRate) {
-        this("Commissioned Employee", firstName, lastName, ssn, grossSales, commissionRate);
+        this(EMPLOYEE_TYPE.COMMISSION_EMPLOYEE, firstName, lastName, ssn, grossSales, commissionRate);
     }
 
-    CommissionEmployee(String empType, String firstName, String lastName, String ssn, double grossSales, double commissionRate) {
+    CommissionEmployee(EMPLOYEE_TYPE empType, String firstName, String lastName, String ssn, double grossSales, double commissionRate) {
         super(empType, firstName, lastName, ssn);
 
         //Validation
@@ -54,7 +54,7 @@ public class CommissionEmployee extends Employee {
     public String getEmployeeInfoString() {
         String str;
 
-        str = String.format("    Gross Sales: %.2f%n    Commission Rate: %.2f%n",
+        str = String.format("    Gross Sales: %.2f%n    Commission Rate: %.4f%n",
                 getGrossSales(),
                 getCommissionRate());
 
@@ -66,4 +66,9 @@ public class CommissionEmployee extends Employee {
         return getGrossSales() * getCommissionRate();
     }
 
+    @Override
+    public void raise(double percent) {
+        percent += 1.0;
+        setCommissionRate(getCommissionRate() * percent);
+    }
 }

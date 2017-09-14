@@ -11,13 +11,13 @@ public class BasePlusCommissionEmployee extends CommissionEmployee {
 
     //Constructor
     BasePlusCommissionEmployee(String firstName, String lastName, String ssn, double grossSales, double commissionRate, double baseSalary) {
-        super("Base Salary Plus Commissioned Employee", firstName, lastName, ssn, grossSales, commissionRate);
-        
+        super(EMPLOYEE_TYPE.BASE_PLUS_COMMISSION_EMPLOYEE, firstName, lastName, ssn, grossSales, commissionRate);
+
         //Validation
-        if(baseSalary < 0){
+        if (baseSalary < 0) {
             throw new IllegalArgumentException("Salary must be a positive value!");
         }
-        
+
         //Initialization
         this.baseSalary = baseSalary;
     }
@@ -26,10 +26,10 @@ public class BasePlusCommissionEmployee extends CommissionEmployee {
     public double getSalary() {
         return baseSalary;
     }
-   
+
     //Setter Block
     public void setSalary(double newSalary) {
-        if(newSalary < 0){
+        if (newSalary < 0) {
             throw new IllegalArgumentException("Salary must be a positive value!");
         }
         baseSalary = newSalary;
@@ -40,12 +40,20 @@ public class BasePlusCommissionEmployee extends CommissionEmployee {
     public String getEmployeeInfoString() {
         String str = super.getEmployeeInfoString();
 
-        str += String.format("    with Base Salary of: $%.2f%n", getSalary());
+        str += String.format("    with Base Salary of: $%.4f%n", getSalary());
 
         return str;
     }
+
     @Override
     public double earnings() {
         return super.earnings() + getSalary();
+    }
+
+    @Override
+    public void raise(double percent) {
+        percent += 1.0;
+        setCommissionRate(getCommissionRate() * percent);
+        setSalary(getSalary() * percent);
     }
 }
