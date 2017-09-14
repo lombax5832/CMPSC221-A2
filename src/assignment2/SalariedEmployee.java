@@ -40,7 +40,7 @@ public class SalariedEmployee extends Employee {
     public String getEmployeeInfoString() {
         String str;
 
-        str = String.format("    Salary: $%.2f%n", getSalary());
+        str = String.format("\tSalary: $%.2f%n", getSalary());
 
         return str;
     }

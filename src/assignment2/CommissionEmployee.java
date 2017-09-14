@@ -54,7 +54,7 @@ public class CommissionEmployee extends Employee {
     public String getEmployeeInfoString() {
         String str;
 
-        str = String.format("    Gross Sales: %.2f%n    Commission Rate: %.4f%n",
+        str = String.format("\tGross Sales: %.2f%n\tCommission Rate: %.4f%n",
                 getGrossSales(),
                 getCommissionRate());
 

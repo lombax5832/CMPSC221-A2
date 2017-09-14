@@ -54,7 +54,7 @@ public class HourlyEmployee extends Employee {
     public String getEmployeeInfoString() {
         String str;
 
-        str = String.format("    Hourly Wage: %.2f%n    Hours Worked: %.2f%n", getWage(), getHoursWorked());
+        str = String.format("\tHourly Wage: %.2f%n\tHours Worked: %.2f%n", getWage(), getHoursWorked());
 
         return str;
     }

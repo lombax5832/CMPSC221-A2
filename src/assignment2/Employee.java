@@ -26,9 +26,9 @@ public abstract class Employee {
 
     //Private Data
     private final EMPLOYEE_TYPE empType;
-    private String firstName;
-    private String lastName;
-    private String ssn;
+    private final String firstName;
+    private final String lastName;
+    private final String ssn;
 
     //Constructor
     Employee(EMPLOYEE_TYPE empType, String firstName, String lastName, String ssn) {
@@ -42,7 +42,7 @@ public abstract class Employee {
     public String toString() {
         String str;
 
-        str = String.format("%s: %s with ssn: %s%n%s    Earnings: $%.2f%n",
+        str = String.format("%s: %s with ssn: %s%n%s\tEarnings: $%.2f%n",
                 empType.toString(),
                 getFullName(),
                 getSSN(),
