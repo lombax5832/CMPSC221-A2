@@ -24,7 +24,7 @@ public abstract class Employee {
     public String toString() {
         String str;
 
-        str = String.format("%s: %s with ssn: %s%n%s    Earnings: $%.2f%n",
+        str = String.format("%s: %s with ssn: %s%n%s\tEarnings: $%.2f%n",
                 getEmployeeType(),
                 getFullName(),
                 getSSN(),

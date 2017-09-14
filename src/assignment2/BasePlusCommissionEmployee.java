@@ -40,7 +40,7 @@ public class BasePlusCommissionEmployee extends CommissionEmployee {
     public String getEmployeeInfoString() {
         String str = super.getEmployeeInfoString();
 
-        str += String.format("    with Base Salary of: $%.2f%n", getSalary());
+        str += String.format("\twith Base Salary of: $%.2f%n", getSalary());
 
         return str;
     }
