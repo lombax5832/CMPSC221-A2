@@ -56,7 +56,7 @@ public abstract class Employee {
     }
 
     //Abstract method block
-    protected abstract String getEmployeeInfoString();
+    public abstract String getEmployeeInfoString();
 
     public abstract double getEarnings();
 
