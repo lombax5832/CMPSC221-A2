@@ -60,7 +60,7 @@ public class HourlyEmployee extends Employee {
     }
 
     @Override
-    public double getEarnings() {
+    public double earnings() {
         return getHoursWorked() * getWage();
     }
 

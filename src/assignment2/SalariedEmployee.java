@@ -45,7 +45,7 @@ public class SalariedEmployee extends Employee{
         return str;
     }
     @Override
-    public double getEarnings() {
+    public double earnings() {
         return getSalary();
     }
     

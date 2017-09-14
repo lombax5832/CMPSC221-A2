@@ -29,7 +29,7 @@ public abstract class Employee {
                 getFullName(),
                 getSSN(),
                 getEmployeeInfoString(),
-                getEarnings());
+                earnings());
 
         return str;
     }
@@ -58,7 +58,7 @@ public abstract class Employee {
     //Abstract method block
     public abstract String getEmployeeInfoString();
 
-    public abstract double getEarnings();
+    public abstract double earnings();
 
     /**
      * @param args the command line arguments
