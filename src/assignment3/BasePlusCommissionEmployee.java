@@ -1,58 +1,59 @@
-package assignment2;
+package assignment3;
 
 /**
  *
  * @author aps5601
  */
-public class SalariedEmployee extends Employee {
+public class BasePlusCommissionEmployee extends CommissionEmployee {
 
     //Private Data
-    private double salary;
+    private double baseSalary;
 
     //Constructor
-    SalariedEmployee(String firstName, String lastName, String ssn, double salary) {
-        super(EMPLOYEE_TYPE.SALARIED_EMPLOYEE, firstName, lastName, ssn);
+    BasePlusCommissionEmployee(String firstName, String lastName, String ssn, double grossSales, double commissionRate, double baseSalary) {
+        super(EMPLOYEE_TYPE.BASE_PLUS_COMMISSION_EMPLOYEE, firstName, lastName, ssn, grossSales, commissionRate);
 
         //Validation
-        if (salary < 0) {
+        if (baseSalary < 0) {
             throw new IllegalArgumentException("Salary must be a positive value!");
         }
 
         //Initialization
-        this.salary = salary;
+        this.baseSalary = baseSalary;
     }
 
     //Getter Block
     public double getSalary() {
-        return salary;
+        return baseSalary;
     }
 
     //Setter Block
     public void setSalary(double newSalary) {
-        if (salary < 0) {
+        if (newSalary < 0) {
             throw new IllegalArgumentException("Salary must be a positive value!");
         }
-        salary = newSalary;
+        baseSalary = newSalary;
     }
 
     //Abstract method override block
     @Override
     public String getEmployeeInfoString() {
-        String str;
+        String str = super.getEmployeeInfoString();
 
-        str = String.format("\tSalary: $%.2f%n", getSalary());
+        str += String.format("\twith Base Salary of: $%.2f%n", getSalary());
 
         return str;
     }
 
     @Override
     public double earnings() {
-        return getSalary();
+        return super.earnings() + getSalary();
     }
 
     @Override
     public void raise(double percent) {
         percent += 1.0;
+        setCommissionRate(getCommissionRate() * percent);
         setSalary(getSalary() * percent);
     }
 }
