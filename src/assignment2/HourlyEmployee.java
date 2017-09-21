@@ -16,8 +16,8 @@ public class HourlyEmployee extends Employee {
         if (wage < 0) {
             throw new IllegalArgumentException("Wage must be a positive value!");
         }
-        if (hoursWorked < 0) {
-            throw new IllegalArgumentException("Hours Worked must be a positive value!");
+        if (hoursWorked < 1 || hoursWorked > 168) {
+            throw new IllegalArgumentException("Hours Worked must be between 1 and 168!");
         }
 
         //Initialization
@@ -43,8 +43,8 @@ public class HourlyEmployee extends Employee {
     }
 
     public void setHoursWorked(double newHoursWorked) {
-        if (newHoursWorked < 0) {
-            throw new IllegalArgumentException("Wage must be a positive value!");
+        if (hoursWorked < 1 || hoursWorked > 168) {
+            throw new IllegalArgumentException("Hours Worked must be between 1 and 168!");
         }
         hoursWorked = newHoursWorked;
     }
